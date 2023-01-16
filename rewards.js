@@ -2,10 +2,32 @@ fetch('https://jsonplaceholder.typicode.com/users').then(response => {
     return response.json();
 }).then(json => {
 
+      /*
+    Json is array of data like this-> 
+     {
+    "id": 7,
+    "name": "Kurtis Weissnat",
+    "username": "Elwyn.Skiles",
+    "email": "Telly.Hoeger@billy.biz",
+    "address": {
+      "street": "Rex Trail",
+      "suite": "Suite 280",
+      "city": "Howemouth",
+      "zipcode": "58804-1099",
+      "geo": {
+        "lat": "24.8918",
+        "lng": "21.8984"
+      }
+    }
+    */
+
     let max_rewards = 100;
+
     // we will receive rewards points 
-    // assuming val is the value of reward
-    const val = 10;
+    // assuming id value is the reward
+    // since json is an array we are getting 7th value from array and it's id property as reward
+    const val = json[7].id;
+
 
     let ul = document.getElementsByTagName('ul');
     // Adding views dynamically
